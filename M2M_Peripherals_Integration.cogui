@@ -11,22 +11,43 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
+<part id="2"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.coocox.welcome.ui.WelcomePage" name="" partName="welcome" title="welcome" tooltip="" workbook="DefaultEditorWorkbook">
+<editor id="org.coocox.welcome.ui.WelcomePage" name="" partName="welcome" title="welcome" tooltip="" workbook="DefaultEditorWorkbook">
 <input factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory">
 <org.coocox.welcome.ui.WelcomePage/>
+</input>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/Jose/Documents/GitHub/M2M_2016_S/main.c" title="main.c" tooltip="C:/Users/Jose/Documents/GitHub/M2M_2016_S/main.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/M2M_Peripherals_Integration/main.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" partName="Repository" title="Repository" tooltip="Repository" workbook="DefaultEditorWorkbook">
+<input factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory">
+<subPage horizontalPosition="0" selectedItemId="514" subPageIndex="2" verticalPosition="0"/>
 </input>
 </editor>
 </editors>
 <views>
 <view id="org.coocox.builder.ui.views.ProjectView" partName="Project">
-<viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="0">
+<viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="7">
 <expanded>
 <element path="/M2M_Peripherals_Integration"/>
+<element path="/M2M_Peripherals_Integration/cmsis"/>
+<element path="/M2M_Peripherals_Integration/cmsis_boot"/>
+<element path="/M2M_Peripherals_Integration/cmsis_boot/startup"/>
+<element path="/M2M_Peripherals_Integration/cmsis_lib"/>
+<element path="/M2M_Peripherals_Integration/cmsis_lib/include"/>
+<element path="/M2M_Peripherals_Integration/semihosting"/>
+<element path="/M2M_Peripherals_Integration/stdio"/>
 </expanded>
+<selection>
+<element path="/M2M_Peripherals_Integration/syscalls"/>
+</selection>
 </viewState>
 </view>
 <view id="org.coocox.component.ui.ComponentView" partName="Components">
@@ -42,9 +63,6 @@
 <viewState/>
 </view>
 <view id="org.eclipse.debug.ui.VariableView" partName="Variables">
-<viewState/>
-</view>
-<view id="org.coocox.component.ui.Help" partName="Help">
 <viewState/>
 </view>
 </views>
@@ -79,7 +97,6 @@
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <hide_toolbar_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
 <view id="org.coocox.component.ui.ComponentView"/>
-<view id="org.coocox.component.ui.Help"/>
 <view id="org.coocox.builder.ui.views.ProjectView"/>
 <fastViewBars/>
 <layout>
@@ -101,15 +118,13 @@
 <info part="org.eclipse.ui.console.ConsoleView" ratio="0.69908017" ratioLeft="532" ratioRight="229" relationship="4" relative="org.eclipse.ui.internal.ViewStack@6ce0a3"/>
 <info part="org.coocox.builder.ui.exampleView" ratio="0.21997207" ratioLeft="315" ratioRight="1117" relationship="2" relative="org.eclipse.ui.internal.ViewStack@6ce0a3"/>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@479bc6" ratio="0.71978515" ratioLeft="804" ratioRight="313" relationship="2" relative="org.coocox.builder.ui.exampleView">
-<folder activePageID="org.coocox.component.ui.Help" appearance="2" expanded="2">
-<page content="org.coocox.component.ui.Help" label="Help"/>
+<folder appearance="2" expanded="2">
+<page content="org.coocox.component.ui.Help" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.coocox.coassistant.view.CoAssistantView" label="LabelNotFound"/>
 <page content="org.coocox.builder.ui.MoreExampleView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.44940868" ratioLeft="342" ratioRight="419" relationship="4" relative="org.coocox.builder.ui.exampleView"/>
@@ -249,28 +264,23 @@
 <editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage">
 <org.coocox.welcome.ui.WelcomePage/>
 </editor>
+<editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage">
+<org.coocox.welcome.ui.WelcomePage/>
+</editor>
+<editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage">
+<org.coocox.welcome.ui.WelcomePage/>
+</editor>
+<editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor">
+<org.coocox.builder.ui.editors.ConfigEditor/>
+</editor>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/M2M_Peripherals_Integration/main.c"/>
+<editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage">
+<org.coocox.welcome.ui.WelcomePage/>
+</editor>
+<editor factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser">
+<subPage horizontalPosition="0" selectedItemId="514" subPageIndex="2" verticalPosition="0"/>
+</editor>
 </editors>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="153" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="772" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="915" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="883" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="883" y="0"/>
-</item>
-<item historyLabel="sh_cmd.s" index="4">
-<position info="not_deleted" x="845" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="883" y="0"/>
-</item>
 <item historyLabel="sh_cmd.s" index="4">
 <position info="not_deleted" x="845" y="0"/>
 </item>
@@ -383,7 +393,16 @@
 <item historyLabel="welcome" index="14"/>
 <item historyLabel="Repository" index="15"/>
 <item historyLabel="Repository" index="16"/>
-<item active="true" historyLabel="welcome" index="17"/>
+<item historyLabel="welcome" index="17"/>
+<item historyLabel="welcome" index="18"/>
+<item historyLabel="welcome" index="19"/>
+<item historyLabel="Configuration" index="20"/>
+<item historyLabel="welcome" index="19"/>
+<item historyLabel="main.c" index="21">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="welcome" index="22"/>
+<item active="true" historyLabel="Repository" index="23"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -391,6 +410,14 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
+<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
+<persistable>
+<subPage horizontalPosition="0" selectedItemId="514" subPageIndex="2" verticalPosition="0"/>
+</persistable>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="M2M_Peripherals_Integration/main.c">
+<persistable path="/M2M_Peripherals_Integration/main.c"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.asm.AsmEditor" name="sh_cmd.s" tooltip="Test 1/semihosting/sh_cmd.s">
 <persistable path="/Test 1/semihosting/sh_cmd.s"/>
 </file>
@@ -429,12 +456,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="core_cm4_simd.h" tooltip="Test 1/cmsis/core_cm4_simd.h">
 <persistable path="/Test 1/cmsis/core_cm4_simd.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="semihosting.c" tooltip="Test 1/semihosting/semihosting.c">
-<persistable path="/Test 1/semihosting/semihosting.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_stm32f4xx.c" tooltip="Test 1/cmsis_boot/startup/startup_stm32f4xx.c">
-<persistable path="/Test 1/cmsis_boot/startup/startup_stm32f4xx.c"/>
 </file>
 </mruList>
 </workbench>
