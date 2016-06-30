@@ -2,6 +2,7 @@
 #include "stm32f4xx_rcc.h"
 #include "stm32f4xx_gpio.h"
 #include "stm32f4xx_adc.h"
+#include "PeripheralSetup.h"
 
 GPIO_InitTypeDef GPIO_InitStruct;
 ADC_InitTypeDef ADC_InitStruct;
