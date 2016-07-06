@@ -29,7 +29,7 @@ void delay_nus(u32 n) {
 }
 
 void delay_1ms(void) {
-	sysTickCounter = 1000;
+	sysTickCounter = 100;
 	while (sysTickCounter != 0) {
 	}
 }

@@ -11,7 +11,7 @@
          <include file="..\..\..\cmsis\core_cmFunc.h"/>
          <include file="..\..\..\cmsis\core_cm4_simd.h"/>
       </source>
-      <source file="..\..\..\delay.c" lastModified="155b273645b">
+      <source file="..\..\..\delay.c" lastModified="155bf5969ee">
          <include file="..\..\..\delay.h"/>
       </source>
       <source file="..\..\..\cmsis_boot\system_stm32f4xx.h" lastModified="1559d082592">
@@ -45,12 +45,19 @@
       </source>
       <source file="..\..\..\syscalls\syscalls.c" lastModified="15580a62a3d">
       </source>
-      <source file="..\..\..\PeripheralSetup.c" lastModified="155bf46b924">
+      <source file="..\..\..\PeripheralSetup.c" lastModified="155bf71a261">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_adc.h"/>
       </source>
       <source file="..\..\..\semihosting\semihosting.h" lastModified="1559d0863d7">
+      </source>
+      <source file="..\..\..\main.c" lastModified="155bf745ccc">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_adc.h"/>
+         <include file="..\..\..\syscalls\PeripheralSetup.h"/>
+         <include file="..\..\..\delay.h"/>
       </source>
       <source file="..\..\..\cmsis\core_cmFunc.h" lastModified="1559d0822ea">
       </source>
