@@ -26,7 +26,7 @@
       <source file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h" lastModified="1559d08d954">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
-      <source file="..\..\..\syscalls\PeripheralSetup.h" lastModified="155c47d4d9a">
+      <source file="..\..\..\syscalls\PeripheralSetup.h" lastModified="155c4dc5079">
       </source>
       <source file="..\..\..\cmsis_lib\source\stm32f4xx_dma.c" lastModified="155c499e261">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_dma.h"/>
@@ -50,7 +50,7 @@
       </source>
       <source file="..\..\..\syscalls\syscalls.c" lastModified="15580a62a3d">
       </source>
-      <source file="..\..\..\PeripheralSetup.c" lastModified="155c4ce1a4b">
+      <source file="..\..\..\PeripheralSetup.c" lastModified="155c4e1d841">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_adc.h"/>
@@ -61,7 +61,7 @@
       </source>
       <source file="..\..\..\semihosting\semihosting.h" lastModified="1559d0863d7">
       </source>
-      <source file="..\..\..\main.c" lastModified="155c4cbd1b8">
+      <source file="..\..\..\main.c" lastModified="155c4e55c67">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_adc.h"/>

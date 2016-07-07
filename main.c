@@ -20,13 +20,13 @@ int main(void)
 	SysTick_Init();
 
 	PeripheralsInit();
-
+	TapLedInit();
 //	SqueezeLEDInit(); //Connect LED to PA0
 	PushButtonInit(); //Turns on the blue push button on the stm board
 
 	//Initialize values for each sensor reading
 	int SqueezeReading=0;
-	int TapReading=0;
+	int TapReading=3000;
 	int SpinReading=0;
 
 	//Initialize state of the blue button to OFF
@@ -38,7 +38,7 @@ int main(void)
 	int SpinThreshold=0;
 	//Begin main loop
 	while (1){
-
+		GPIO_SetBits(GPIOA,GPIO_Pin_2);
 		//Read the state of the blue button
 		ButtonState=GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_0);
 
@@ -67,13 +67,14 @@ int main(void)
 
 			}
 
-			if (SpinReading>SqueezeThreshold){
+			if (SpinReading>SpinThreshold){
 				//Turn on Spin LED
 				//Play Spin music note
 			}
 
-			if (TapReading>SqueezeThreshold){
+			if (TapReading<TapThreshold){
 				//Turn on Tap LED
+				GPIO_SetBits(GPIOA,GPIO_Pin_2);
 				//Play Tap music note
 			}
 			delay_nms(.01);
