@@ -8,7 +8,8 @@
 
 int main(void)
 {
-	printf("Hello\r\n");
+	SysTick_Init();
+	printf("Hello World!\n");
 	SqueezeInit(); //Connect Sensor to PC0
 	TapInit(); //Connect Sensor to PC1
 	SpinInit(); //Connect Sensor to PC2
@@ -18,7 +19,7 @@ int main(void)
 	BoardLEDInit();
 
 	//Initialize the delay timer
-	SysTick_Init();
+
 
 	//Initialize values for each sensor reading
 	int SqueezeReading=0;
