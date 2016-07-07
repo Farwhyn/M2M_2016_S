@@ -8,7 +8,7 @@
 #include "stm32f4xx_gpio.h"
 #include "stm32f4xx_adc.h"
 
-void SqueezeInit(){
+void TapInit(void){
 	GPIO_InitTypeDef GPIO_InitStruct;
 	ADC_InitTypeDef ADC_InitStruct;
 
@@ -34,11 +34,11 @@ void SqueezeInit(){
 
 	ADC_Cmd(ADC1, ENABLE);
 
-	ADC_RegularChannelConfig(ADC1,ADC_Channel_10,1,ADC_SampleTime_144Cycles);
+	ADC_RegularChannelConfig(ADC1,ADC_Channel_10,1,ADC_SampleTime_15Cycles);
 }
 
 
-void TapInit(){
+void SqueezeInit(void){
 	GPIO_InitTypeDef GPIO_InitStruct;
 	ADC_InitTypeDef ADC_InitStruct;
 
@@ -64,11 +64,11 @@ void TapInit(){
 
 	ADC_Cmd(ADC2, ENABLE);
 
-	ADC_RegularChannelConfig(ADC2,ADC_Channel_11,1,ADC_SampleTime_144Cycles);
+	ADC_RegularChannelConfig(ADC2,ADC_Channel_11,1,ADC_SampleTime_15Cycles);
 }
 
 
-void SpinInit(){
+void SpinInit(void){
 	GPIO_InitTypeDef GPIO_InitStruct;
 	ADC_InitTypeDef ADC_InitStruct;
 
@@ -94,10 +94,10 @@ void SpinInit(){
 
 	ADC_Cmd(ADC3, ENABLE);
 
-	ADC_RegularChannelConfig(ADC3,ADC_Channel_12,1,ADC_SampleTime_144Cycles);
+	ADC_RegularChannelConfig(ADC3,ADC_Channel_12,1,ADC_SampleTime_15Cycles);
 }
 
-void BoardLEDInit (){
+void BoardLEDInit (void){
 	GPIO_InitTypeDef GPIO_InitStruct;
 
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
@@ -110,7 +110,7 @@ void BoardLEDInit (){
 	GPIO_Init(GPIOD, &GPIO_InitStruct);
 }
 
-void PushButtonInit() {
+void PushButtonInit(void) {
 	GPIO_InitTypeDef GPIO_InitStruct;
 
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
@@ -122,9 +122,9 @@ void PushButtonInit() {
 	GPIO_Init(GPIOA, &GPIO_InitStruct);
 }
 
-int SensorRead(char sensor){
+int SensorRead(int sensor){
 
-	if (sensor == 'squeeze'){
+	if (sensor == 1){
 		ADC_SoftwareStartConv(ADC1);
 		while(!ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC)){
 
@@ -132,7 +132,7 @@ int SensorRead(char sensor){
 			return ADC_GetConversionValue(ADC1);
 		}
 
-	if (sensor == 'tap'){
+	if (sensor == 2){
 		ADC_SoftwareStartConv(ADC2);
 		while(!ADC_GetFlagStatus(ADC2, ADC_FLAG_EOC)){
 
@@ -140,7 +140,7 @@ int SensorRead(char sensor){
 			return ADC_GetConversionValue(ADC2);
 		}
 
-	if (sensor == 'spin'){
+	if (sensor == 3){
 		ADC_SoftwareStartConv(ADC3);
 		while(!ADC_GetFlagStatus(ADC3, ADC_FLAG_EOC)){
 

@@ -5,22 +5,28 @@
 #include "PeripheralSetup.h"
 #include "delay.h"
 
-SqueezeInit(); //Connect Sensor to PC0
-TapInit(); //Connect Sensor to PC1
-SpinInit(); //Connect Sensor to PC2
 
-SqueezeLEDInit(); //Connect LED to PA0
-PushButtonInit (); //Turns on the blue push button on the stm board
+int const tap = 1;
+int const squeeze = 2;
+int const spin =3;
 
 int main(void)
 {
+	printf("hi");
 	//Initialize the delay timer
 	SysTick_Init();
 
+	SqueezeInit(); //Connect Sensor to PC0
+	TapInit(); //Connect Sensor to PC1
+	SpinInit(); //Connect Sensor to PC2
+
+//	SqueezeLEDInit(); //Connect LED to PA0
+	PushButtonInit(); //Turns on the blue push button on the stm board
+
 	//Initialize values for each sensor reading
-	int SqueezeReading;
-	int TapReading;
-	int SpinReading;
+	int SqueezeReading=0;
+	int TapReading=0;
+	int SpinReading=0;
 
 	//Initialize state of the blue button to OFF
 	int ButtonState=0;
@@ -31,20 +37,21 @@ int main(void)
 	int SpinThreshold=0;
 	//Begin main loop
 	while (1){
+		printf("hi");
 		//Read the state of the blue button
 		ButtonState=GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_0);
 
 
 
 		//If blue button is off, initialize the Free Play mode
-		if (!state){
+		if (!ButtonState){
 			//Turn on the LEDs to indicate it's in Free Play Mode
 			GPIO_SetBits(GPIOD, GPIO_Pin_15 | GPIO_Pin_14 | GPIO_Pin_13 | GPIO_Pin_12);
 
 			//Read the voltage values for each of the three peripherals
-			SqueezeReading=SensorRead("Squeeze");
-			TapReading=SensorRead("Tap");
-			SqueezeReading=SensorRead("Spin");
+//			SqueezeReading=SensorRead(squeeze);
+//			TapReading=SensorRead(tap);
+//			SqueezeReading=SensorRead(spin);
 
 			if (SqueezeReading>SqueezeThreshold){
 				//Turn on Squeeze LED
@@ -60,7 +67,7 @@ int main(void)
 				//Turn on Tap LED
 				//Play Tap music note
 			}
-			delay_1ms(500);
+			delay_nms(.01);
 		}
 
 		//If blue button is on, initialize Simon Says Mode
@@ -70,9 +77,9 @@ int main(void)
 
 		}
 
-
-
-		printf("%d\r\n", Reading);
+//
+//
+//		printf("%d\r\n", Reading);
 
 	}
 }
