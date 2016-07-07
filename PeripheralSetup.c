@@ -123,32 +123,36 @@ void PushButtonInit(void) {
 	GPIO_Init(GPIOA, &GPIO_InitStruct);
 }
 
-int SensorRead(char *sensor){
+int SensorRead(int sensor){
 
-	if (*sensor == 'squeeze'){
+	switch(sensor){
+
+	case 1 : //Tap
 		ADC_SoftwareStartConv(ADC1);
 		while(!ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC)){
 
 		}
 			return ADC_GetConversionValue(ADC1);
+	break;
 
-	}
-	else if (*sensor == 'tap'){
+	case 2 : //Squeeze
 		ADC_SoftwareStartConv(ADC2);
 		while(!ADC_GetFlagStatus(ADC2, ADC_FLAG_EOC)){
 
 		}
 			return ADC_GetConversionValue(ADC2);
-	}
+		break;
 
-	else if (*sensor == 'spin'){
+	case 3 : //Spin
 		ADC_SoftwareStartConv(ADC3);
 		while(!ADC_GetFlagStatus(ADC3, ADC_FLAG_EOC)){
 
 		}
 			return ADC_GetConversionValue(ADC3);
-	}
-	else
+		break;
+
+	default :
 		return 1;
+	}
 }
 
