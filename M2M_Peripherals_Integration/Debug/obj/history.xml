@@ -2,6 +2,7 @@
 <history>
    <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F407VG -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S\cmsis_lib\include -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S\cmsis_lib -I..\..\..\..\..\Users\Jose\Documents -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S -I..\..\..\..\..\Users\Jose\Documents\GitHub -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S\semihosting -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S\cmsis_boot -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S\cmsis -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S\syscalls">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <target file="syscalls.o" lastModified="155c4870dfb">
          <source file="..\..\..\syscalls\syscalls.c" lastModified="15580a61a9d"/>
       </target>
@@ -54,6 +55,29 @@
       <target file="PeripheralSetup.o" lastModified="155c46501c0">
          <source file="..\..\..\PeripheralSetup.c" lastModified="155c461275a"/>
       </target>
+=======
+      <target file="syscalls.o" lastModified="155c46502c7">
+         <source file="..\..\..\syscalls\syscalls.c" lastModified="15580a61a9d"/>
+      </target>
+      <target file="stm32f4xx_gpio.o" lastModified="155c4650220">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="1559d08d963"/>
+      </target>
+      <target file="stm32f4xx_adc.o" lastModified="155c46500ee">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_adc.c" lastModified="1559d09045d"/>
+      </target>
+      <target file="printf.o" lastModified="155c465015a">
+         <source file="..\..\..\stdio\printf.c" lastModified="155c43430a9"/>
+      </target>
+      <target file="system_stm32f4xx.o" lastModified="155c465027a">
+         <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="155c433ebba"/>
+      </target>
+      <target file="startup_stm32f4xx.o" lastModified="155c464ff68">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="155c433c2f5"/>
+      </target>
+      <target file="PeripheralSetup.o" lastModified="155c46501c0">
+         <source file="..\..\..\PeripheralSetup.c" lastModified="155c461275a"/>
+      </target>
+>>>>>>> parent of 272439d... Added new library to make Analog reading easier
       <target file="main.o" lastModified="155c4656852">
          <source file="..\..\..\main.c" lastModified="155c46561b6"/>
       </target>
@@ -69,6 +93,9 @@
       <target file="delay.o" lastModified="155c464ff26">
          <source file="..\..\..\delay.c" lastModified="155c41b61bd"/>
       </target>
+<<<<<<< HEAD
+>>>>>>> parent of 272439d... Added new library to make Analog reading easier
+=======
 >>>>>>> parent of 272439d... Added new library to make Analog reading easier
    </processor>
 </history>
