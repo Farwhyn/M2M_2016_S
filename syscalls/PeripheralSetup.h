@@ -1,6 +1,4 @@
-void TapInit(void); //Connect Sensor to PC0
-void SqueezeInit(void); //Connect Sensor to PC1
-void SpinInit(void); //Connect Sensor to PC2
+void PeripheralsInit(void); //Tap = PC0 -- Squeeze = PC1 -- Spin = PC2
 
 void SqueezeLEDInit(void); //Connect LED to PA0
 void PushButtonInit(void); //Turns on the blue push button on the stm board
