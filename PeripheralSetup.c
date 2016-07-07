@@ -42,7 +42,7 @@ void SqueezeInit(void){
 	GPIO_InitTypeDef GPIO_InitStruct;
 	ADC_InitTypeDef ADC_InitStruct;
 
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC2, ENABLE);
 	RCC_AHB1PeriphClockCmd(RCC_AHB1ENR_GPIOCEN,ENABLE);
 
 	//Analog Pin Config
@@ -124,14 +124,12 @@ void PushButtonInit(void) {
 
 int SensorRead(int sensor){
 
-
+	if (sensor == 1){
 		ADC_SoftwareStartConv(ADC1);
 		while(!ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC)){
 
 		}
 			return ADC_GetConversionValue(ADC1);
-
-			if (sensor == 1){
 				}
 	else if (sensor == 2){
 		ADC_SoftwareStartConv(ADC2);

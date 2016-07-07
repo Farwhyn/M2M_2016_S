@@ -248,7 +248,7 @@ Linker script and memory map
 
                 0x20020000                _eram = 0x20020000
 
-.text           0x08000000     0x128c
+.text           0x08000000     0x12e8
  *(.isr_vector)
  .isr_vector    0x08000000      0x188 ..\obj\startup_stm32f4xx.o
                 0x08000000                g_pfnVectors
@@ -440,29 +440,29 @@ Linker script and memory map
                 0x08000edc       0x38 ..\obj\PeripheralSetup.o
                 0x08000edc                PushButtonInit
  .text.SensorRead
-                0x08000f14       0x34 ..\obj\PeripheralSetup.o
+                0x08000f14       0x90 ..\obj\PeripheralSetup.o
                 0x08000f14                SensorRead
  .text.GPIO_Init
-                0x08000f48      0x11c ..\obj\stm32f4xx_gpio.o
-                0x08000f48                GPIO_Init
+                0x08000fa4      0x11c ..\obj\stm32f4xx_gpio.o
+                0x08000fa4                GPIO_Init
  .text.GPIO_ReadInputDataBit
-                0x08001064       0x34 ..\obj\stm32f4xx_gpio.o
-                0x08001064                GPIO_ReadInputDataBit
+                0x080010c0       0x34 ..\obj\stm32f4xx_gpio.o
+                0x080010c0                GPIO_ReadInputDataBit
  .text.GPIO_SetBits
-                0x08001098       0x1c ..\obj\stm32f4xx_gpio.o
-                0x08001098                GPIO_SetBits
+                0x080010f4       0x1c ..\obj\stm32f4xx_gpio.o
+                0x080010f4                GPIO_SetBits
  .text.GPIO_ToggleBits
-                0x080010b4       0x24 ..\obj\stm32f4xx_gpio.o
-                0x080010b4                GPIO_ToggleBits
- .text          0x080010d8       0x26 ..\obj\sh_cmd.o
-                0x080010d8                SH_DoCommand
-                0x080010ea                HardFault_Handler
- *fill*         0x080010fe        0x2 
+                0x08001110       0x24 ..\obj\stm32f4xx_gpio.o
+                0x08001110                GPIO_ToggleBits
+ .text          0x08001134       0x26 ..\obj\sh_cmd.o
+                0x08001134                SH_DoCommand
+                0x08001146                HardFault_Handler
+ *fill*         0x0800115a        0x2 
  .text.SystemInit
-                0x08001100       0x5c ..\obj\system_stm32f4xx.o
-                0x08001100                SystemInit
+                0x0800115c       0x5c ..\obj\system_stm32f4xx.o
+                0x0800115c                SystemInit
  .text.SetSysClock
-                0x0800115c       0xf4 ..\obj\system_stm32f4xx.o
+                0x080011b8       0xf4 ..\obj\system_stm32f4xx.o
  *(.init)
  *(.fini)
  *crtbegin.o(.ctors)
@@ -476,43 +476,43 @@ Linker script and memory map
  *(SORT(.dtors.*))
  *(.dtors)
  *(.rodata*)
- .rodata        0x08001250       0x15 ..\obj\main.o
-                0x08001250                tap
-                0x08001254                squeeze
-                0x08001258                spin
- *fill*         0x08001265        0x3 
- .rodata        0x08001268       0x24 ..\obj\printf.o
+ .rodata        0x080012ac       0x15 ..\obj\main.o
+                0x080012ac                tap
+                0x080012b0                squeeze
+                0x080012b4                spin
+ *fill*         0x080012c1        0x3 
+ .rodata        0x080012c4       0x24 ..\obj\printf.o
  *(.eh_fram e*)
 
-.glue_7         0x0800128c        0x0
- .glue_7        0x0800128c        0x0 linker stubs
+.glue_7         0x080012e8        0x0
+ .glue_7        0x080012e8        0x0 linker stubs
 
-.glue_7t        0x0800128c        0x0
- .glue_7t       0x0800128c        0x0 linker stubs
+.glue_7t        0x080012e8        0x0
+ .glue_7t       0x080012e8        0x0 linker stubs
 
-.vfp11_veneer   0x0800128c        0x0
- .vfp11_veneer  0x0800128c        0x0 linker stubs
+.vfp11_veneer   0x080012e8        0x0
+ .vfp11_veneer  0x080012e8        0x0 linker stubs
 
-.v4_bx          0x0800128c        0x0
- .v4_bx         0x0800128c        0x0 linker stubs
+.v4_bx          0x080012e8        0x0
+ .v4_bx         0x080012e8        0x0 linker stubs
 
-.iplt           0x0800128c        0x0
- .iplt          0x0800128c        0x0 ..\obj\semihosting.o
+.iplt           0x080012e8        0x0
+ .iplt          0x080012e8        0x0 ..\obj\semihosting.o
 
-.rel.dyn        0x0800128c        0x0
- .rel.iplt      0x0800128c        0x0 ..\obj\semihosting.o
+.rel.dyn        0x080012e8        0x0
+ .rel.iplt      0x080012e8        0x0 ..\obj\semihosting.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0800128c                __exidx_start = .
+                0x080012e8                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x0800128c                __exidx_end = .
-                0x0800128c                __etext = .
-                0x0800128c                _sidata = __etext
+                0x080012e8                __exidx_end = .
+                0x080012e8                __etext = .
+                0x080012e8                _sidata = __etext
 
-.data           0x20000000      0x440 load address 0x0800128c
+.data           0x20000000      0x440 load address 0x080012e8
                 0x20000000                __data_start__ = .
                 0x20000000                _sdata = __data_start__
  *(vtable)
@@ -542,10 +542,10 @@ Linker script and memory map
                 0x20000440                __data_end__ = .
                 0x20000440                _edata = __data_end__
 
-.igot.plt       0x20000440        0x0 load address 0x080016cc
+.igot.plt       0x20000440        0x0 load address 0x08001728
  .igot.plt      0x20000440        0x0 ..\obj\semihosting.o
 
-.bss            0x20000440       0x18 load address 0x080016cc
+.bss            0x20000440       0x18 load address 0x08001728
                 0x20000440                . = ALIGN (0x4)
                 0x20000440                __bss_start__ = .
                 0x20000440                _sbss = __bss_start__
@@ -565,7 +565,7 @@ Linker script and memory map
  *(.heap*)
                 0x20000458                __HeapLimit = .
 
-.co_stack       0x20000458      0x800 load address 0x080016e4
+.co_stack       0x20000458      0x800 load address 0x08001740
                 0x20000458                . = ALIGN (0x8)
  *(.co_stack .co_stack.*)
  .co_stack      0x20000458      0x800 ..\obj\startup_stm32f4xx.o
@@ -655,7 +655,7 @@ OUTPUT(M2M_Peripherals_Integration.elf elf32-littlearm)
  .debug_ranges  0x000003f8       0x78 ..\obj\stm32f4xx_gpio.o
  .debug_ranges  0x00000470       0x20 ..\obj\system_stm32f4xx.o
 
-.debug_line     0x00000000     0x1d1e
+.debug_line     0x00000000     0x1d34
  .debug_line    0x00000000       0xb0 ..\obj\semihosting.o
  .debug_line    0x000000b0      0x25f ..\obj\delay.o
  .debug_line    0x0000030f       0xa4 ..\obj\startup_stm32f4xx.o
@@ -663,10 +663,10 @@ OUTPUT(M2M_Peripherals_Integration.elf elf32-littlearm)
  .debug_line    0x00000587      0x5cd ..\obj\stm32f4xx_rcc.o
  .debug_line    0x00000b54      0x585 ..\obj\stm32f4xx_adc.o
  .debug_line    0x000010d9      0x379 ..\obj\printf.o
- .debug_line    0x00001452      0x2bd ..\obj\PeripheralSetup.o
- .debug_line    0x0000170f      0x388 ..\obj\stm32f4xx_gpio.o
- .debug_line    0x00001a97       0x81 ..\obj\sh_cmd.o
- .debug_line    0x00001b18      0x206 ..\obj\system_stm32f4xx.o
+ .debug_line    0x00001452      0x2d3 ..\obj\PeripheralSetup.o
+ .debug_line    0x00001725      0x388 ..\obj\stm32f4xx_gpio.o
+ .debug_line    0x00001aad       0x81 ..\obj\sh_cmd.o
+ .debug_line    0x00001b2e      0x206 ..\obj\system_stm32f4xx.o
 
 .debug_str      0x00000000     0x1fe1
  .debug_str     0x00000000      0x15f ..\obj\semihosting.o

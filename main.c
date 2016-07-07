@@ -4,7 +4,7 @@
 #include "stm32f4xx_adc.h"
 #include "PeripheralSetup.h"
 #include "delay.h"
-
+#include "tm_stm32f4_adc.h"
 
 int const tap = 1;
 int const squeeze = 2;
@@ -16,10 +16,12 @@ int main(void)
 	//Initialize the delay timer
 	SysTick_Init();
 
-	TapInit(); //Connect Sensor to PC2
+	TapInit(); //Connect Sensor to PC0
 //	SqueezeInit(); //Connect Sensor to PC1
 //	SpinInit(); //Connect Sensor to PC2
 
+	TM_ADC_InitADC(ADC1);
+	TM_ADC_EnableVbat();
 //	SqueezeLEDInit(); //Connect LED to PA0
 	PushButtonInit(); //Turns on the blue push button on the stm board
 
@@ -40,7 +42,7 @@ int main(void)
 
 		//Read the state of the blue button
 		ButtonState=GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_0);
-
+		printf("%d\r\n", TM_ADC_ReadVbat(ADC1));
 		//If blue button is off, initialize the Free Play mode
 		if (!ButtonState){
 			//Turn on the LEDs to indicate it's in Free Play Mode
@@ -48,7 +50,7 @@ int main(void)
 
 			//Read the voltage values for each of the three peripherals
 			TapReading=SensorRead(tap);
-			printf("%d\r\n",TapReading);
+//			printf("%d\r\n",TapReading);
 //			SqueezeReading=SensorRead(squeeze);
 //			SqueezeReading=SensorRead(spin);
 
