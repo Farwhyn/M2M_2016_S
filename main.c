@@ -4,7 +4,7 @@
 #include "stm32f4xx_adc.h"
 #include "PeripheralSetup.h"
 #include "delay.h"
-#include "tm_stm32f4_adc.h"
+
 
 int const tap = 1;
 int const squeeze = 2;
@@ -16,6 +16,13 @@ int main(void)
 	//Initialize the delay timer
 	SysTick_Init();
 
+<<<<<<< HEAD
+=======
+	TapInit(); //Connect Sensor to PC2
+//	SqueezeInit(); //Connect Sensor to PC1
+//	SpinInit(); //Connect Sensor to PC2
+
+>>>>>>> parent of 272439d... Added new library to make Analog reading easier
 //	SqueezeLEDInit(); //Connect LED to PA0
 	PushButtonInit(); //Turns on the blue push button on the stm board
 
@@ -45,8 +52,13 @@ int main(void)
 			//Read the voltage values for each of the three peripherals
 			TapReading=SensorRead(tap);
 			printf("%d\r\n",TapReading);
+<<<<<<< HEAD
 			SqueezeReading=SensorRead(squeeze);
 			SqueezeReading=SensorRead(spin);
+=======
+//			SqueezeReading=SensorRead(squeeze);
+//			SqueezeReading=SensorRead(spin);
+>>>>>>> parent of 272439d... Added new library to make Analog reading easier
 
 			if (SqueezeReading>SqueezeThreshold){
 				//Turn on Squeeze LED
