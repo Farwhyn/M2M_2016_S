@@ -8,8 +8,7 @@
 #include "stm32f4xx_gpio.h"
 #include "stm32f4xx_adc.h"
 
-
-void SqueezeInit(void){
+void SqueezeInit(){
 	GPIO_InitTypeDef GPIO_InitStruct;
 	ADC_InitTypeDef ADC_InitStruct;
 
@@ -39,7 +38,7 @@ void SqueezeInit(void){
 }
 
 
-void TapInit(void){
+void TapInit(){
 	GPIO_InitTypeDef GPIO_InitStruct;
 	ADC_InitTypeDef ADC_InitStruct;
 
@@ -69,7 +68,7 @@ void TapInit(void){
 }
 
 
-void SpinInit(void){
+void SpinInit(){
 	GPIO_InitTypeDef GPIO_InitStruct;
 	ADC_InitTypeDef ADC_InitStruct;
 
@@ -98,7 +97,7 @@ void SpinInit(void){
 	ADC_RegularChannelConfig(ADC3,ADC_Channel_12,1,ADC_SampleTime_144Cycles);
 }
 
-void BoardLEDInit (void){
+void BoardLEDInit (){
 	GPIO_InitTypeDef GPIO_InitStruct;
 
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
@@ -111,7 +110,7 @@ void BoardLEDInit (void){
 	GPIO_Init(GPIOD, &GPIO_InitStruct);
 }
 
-void PushButtonInit(void) {
+void PushButtonInit() {
 	GPIO_InitTypeDef GPIO_InitStruct;
 
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
@@ -123,32 +122,30 @@ void PushButtonInit(void) {
 	GPIO_Init(GPIOA, &GPIO_InitStruct);
 }
 
-int SensorRead(char *sensor){
+int SensorRead(char sensor){
 
-	if (*sensor == 'squeeze'){
+	if (sensor == 'squeeze'){
 		ADC_SoftwareStartConv(ADC1);
 		while(!ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC)){
 
 		}
 			return ADC_GetConversionValue(ADC1);
+		}
 
-	}
-	else if (*sensor == 'tap'){
+	if (sensor == 'tap'){
 		ADC_SoftwareStartConv(ADC2);
 		while(!ADC_GetFlagStatus(ADC2, ADC_FLAG_EOC)){
 
 		}
 			return ADC_GetConversionValue(ADC2);
-	}
+		}
 
-	else if (*sensor == 'spin'){
+	if (sensor == 'spin'){
 		ADC_SoftwareStartConv(ADC3);
 		while(!ADC_GetFlagStatus(ADC3, ADC_FLAG_EOC)){
 
 		}
 			return ADC_GetConversionValue(ADC3);
-	}
-	else
-		return 1;
-}
+		}
 
+}
