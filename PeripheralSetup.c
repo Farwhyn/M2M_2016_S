@@ -35,7 +35,7 @@ void SqueezeInit(void){
 
 	ADC_Cmd(ADC1, ENABLE);
 
-	ADC_RegularChannelConfig(ADC1,ADC_Channel_10,1,ADC_SampleTime_15Cycles);
+	ADC_RegularChannelConfig(ADC1,ADC_Channel_10,1,ADC_SampleTime_144Cycles);
 }
 
 
@@ -65,7 +65,7 @@ void TapInit(void){
 
 	ADC_Cmd(ADC2, ENABLE);
 
-	ADC_RegularChannelConfig(ADC2,ADC_Channel_11,1,ADC_SampleTime_15Cycles);
+	ADC_RegularChannelConfig(ADC2,ADC_Channel_11,1,ADC_SampleTime_144Cycles);
 }
 
 
@@ -95,7 +95,7 @@ void SpinInit(void){
 
 	ADC_Cmd(ADC3, ENABLE);
 
-	ADC_RegularChannelConfig(ADC3,ADC_Channel_12,1,ADC_SampleTime_15Cycles);
+	ADC_RegularChannelConfig(ADC3,ADC_Channel_12,1,ADC_SampleTime_144Cycles);
 }
 
 void BoardLEDInit (void){
@@ -133,7 +133,7 @@ int SensorRead(char *sensor){
 			return ADC_GetConversionValue(ADC1);
 
 	}
-	else if (strcmp(sensor, "tap") == 0){
+	else if (*sensor == 'tap'){
 		ADC_SoftwareStartConv(ADC2);
 		while(!ADC_GetFlagStatus(ADC2, ADC_FLAG_EOC)){
 
@@ -148,12 +148,7 @@ int SensorRead(char *sensor){
 		}
 			return ADC_GetConversionValue(ADC3);
 	}
-	else{
-		ADC_SoftwareStartConv(ADC1);
-				while(!ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC)){
-
-				}
-					return ADC_GetConversionValue(ADC1);
-	}
+	else
+		return 1;
 }
 

@@ -15,7 +15,6 @@ int main(void)
 
 //	SqueezeLEDInit(); //Connect LED to PA0
 	PushButtonInit (); //Turns on the blue push button on the stm board
-	BoardLEDInit();
 
 	//Initialize the delay timer
 	SysTick_Init();
@@ -34,6 +33,7 @@ int main(void)
 	int SpinThreshold=0;
 	//Begin main loop
 
+	GPIO_SetBits(GPIOD, GPIO_Pin_15 | GPIO_Pin_14 | GPIO_Pin_13 | GPIO_Pin_12);
 	while (1){
 		//Read the state of the blue button
 		ButtonState=GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_0);
@@ -46,10 +46,10 @@ int main(void)
 			GPIO_SetBits(GPIOD, GPIO_Pin_15 | GPIO_Pin_14 | GPIO_Pin_13 | GPIO_Pin_12);
 
 			//Read the voltage values for each of the three peripherals
-			SqueezeReading=SensorRead("squeeze");
-			TapReading=SensorRead("tap");
-//			printf("%d\r\n", TapReading);
-			SqueezeReading=SensorRead("spin");
+			SqueezeReading=SensorRead("Squeeze");
+			TapReading=SensorRead("Tap");
+			printf("%d\r\n", TapReading);
+			SqueezeReading=SensorRead("Spin");
 
 			if (SqueezeReading>SqueezeThreshold){
 				//Turn on Squeeze LED
@@ -64,8 +64,9 @@ int main(void)
 			if (TapReading>SqueezeThreshold){
 				//Turn on Tap LED
 				//Play Tap music note
+
 			}
-			delay_nms(0.01);
+			delay_nms(1000);
 		}
 
 		//If blue button is on, initialize Simon Says Mode
