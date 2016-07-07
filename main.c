@@ -2,16 +2,13 @@
 #include "stm32f4xx_rcc.h"
 #include "stm32f4xx_gpio.h"
 #include "stm32f4xx_adc.h"
-//#include "PeripheralSetup.h"
-//#include "delay.h"
+#include "PeripheralSetup.h"
+#include "delay.h"
 
-int const tap = 1;
-int const squeeze = 2;
-int const spin =3;
 
 int main(void)
 {
-	printf("Hello");
+	printf("Hello\r\n");
 	SqueezeInit(); //Connect Sensor to PC0
 	TapInit(); //Connect Sensor to PC1
 	SpinInit(); //Connect Sensor to PC2
@@ -49,10 +46,10 @@ int main(void)
 			GPIO_SetBits(GPIOD, GPIO_Pin_15 | GPIO_Pin_14 | GPIO_Pin_13 | GPIO_Pin_12);
 
 			//Read the voltage values for each of the three peripherals
-			SqueezeReading=SensorRead(tap);
-			TapReading=SensorRead(squeeze);
+			SqueezeReading=SensorRead("Squeeze");
+			TapReading=SensorRead("Tap");
 			printf("%d\r\n", TapReading);
-			SqueezeReading=SensorRead(spin);
+			SqueezeReading=SensorRead("Spin");
 
 			if (SqueezeReading>SqueezeThreshold){
 				//Turn on Squeeze LED
