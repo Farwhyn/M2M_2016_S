@@ -4,7 +4,10 @@
 #include "stm32f4xx_adc.h"
 #include "PeripheralSetup.h"
 #include "delay.h"
+#include "stm32f4xx_dma.h"
 
+
+volatile uint16_t ADCConvertedValues[2];
 
 int const tap = 1;
 int const squeeze = 2;
@@ -16,9 +19,7 @@ int main(void)
 	//Initialize the delay timer
 	SysTick_Init();
 
-	TapInit(); //Connect Sensor to PC2
-//	SqueezeInit(); //Connect Sensor to PC1
-//	SpinInit(); //Connect Sensor to PC2
+	PeripheralsInit();
 
 //	SqueezeLEDInit(); //Connect LED to PA0
 	PushButtonInit(); //Turns on the blue push button on the stm board
@@ -37,7 +38,7 @@ int main(void)
 	int SpinThreshold=0;
 	//Begin main loop
 	while (1){
-		printf("hi");
+
 		//Read the state of the blue button
 		ButtonState=GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_0);
 
@@ -48,13 +49,22 @@ int main(void)
 
 			//Read the voltage values for each of the three peripherals
 //			SqueezeReading=SensorRead(squeeze);
-			TapReading=SensorRead(tap);
-			printf(TapReading);
+//			TapReading=SensorRead(tap);
+
+			if (ADCConvertedValues[1] != 0xFFFF)
+			    {
+			      printf("%d %d\n", ADCConvertedValues[0], ADCConvertedValues[1]);
+			      TapReading=ADCConvertedValues[1];
+			      ADCConvertedValues[1] = 0xFFFF;
+			    }
+
+//			printf(TapReading);
 //			SqueezeReading=SensorRead(spin);
 
 			if (SqueezeReading>SqueezeThreshold){
 				//Turn on Squeeze LED
 				//Play Squeeze music note
+
 			}
 
 			if (SpinReading>SqueezeThreshold){

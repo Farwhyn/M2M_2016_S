@@ -1,113 +1,44 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F407VG -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S\cmsis_lib\include -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S\cmsis_lib -I..\..\..\..\..\Users\Jose\Documents -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S -I..\..\..\..\..\Users\Jose\Documents\GitHub -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S\semihosting -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S\cmsis_boot -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S\cmsis -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S\syscalls">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <target file="syscalls.o" lastModified="155c4870dfb">
+      <target file="syscalls.o" lastModified="155c4ce4a1a">
          <source file="..\..\..\syscalls\syscalls.c" lastModified="15580a61a9d"/>
       </target>
-      <target file="stm32f4xx_gpio.o" lastModified="155c4870d3e">
+      <target file="stm32f4xx_gpio.o" lastModified="155c4ce495a">
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="1559d08d963"/>
       </target>
-      <target file="stm32f4xx_adc.o" lastModified="155c4870c11">
+      <target file="stm32f4xx_dma.o" lastModified="155c4ce4a83">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_dma.c" lastModified="155c499e261"/>
+      </target>
+      <target file="stm32f4xx_adc.o" lastModified="155c4ce47dd">
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_adc.c" lastModified="1559d09045d"/>
       </target>
-      <target file="system_stm32f4xx.o" lastModified="155c4870dac">
+      <target file="system_stm32f4xx.o" lastModified="155c4ce49b4">
          <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="155c433ebba"/>
       </target>
-      <target file="printf.o" lastModified="155c4870c86">
+      <target file="printf.o" lastModified="155c4ce484d">
          <source file="..\..\..\stdio\printf.c" lastModified="155c43430a9"/>
       </target>
-      <target file="startup_stm32f4xx.o" lastModified="155c4870aa3">
+      <target file="startup_stm32f4xx.o" lastModified="155c4ce464b">
          <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="155c433c2f5"/>
       </target>
-      <target file="sh_cmd.o" lastModified="155c4870d5a">
+      <target file="PeripheralSetup.o" lastModified="155c4ce48f1">
+         <source file="..\..\..\PeripheralSetup.c" lastModified="155c4ce1663"/>
+      </target>
+      <target file="main.o" lastModified="155c4ce46be">
+         <source file="..\..\..\main.c" lastModified="155c4cbcdd0"/>
+      </target>
+      <target file="sh_cmd.o" lastModified="155c4ce4967">
          <source file="..\..\..\semihosting\sh_cmd.s" lastModified="1559d0863e2"/>
       </target>
-      <target file="semihosting.o" lastModified="155c48709ae">
+      <target file="semihosting.o" lastModified="155c4ce45a3">
          <source file="..\..\..\semihosting\semihosting.c" lastModified="1559d0863cc"/>
       </target>
-      <target file="delay.o" lastModified="155c4870a18">
+      <target file="delay.o" lastModified="155c4ce4609">
          <source file="..\..\..\delay.c" lastModified="155c41b61bd"/>
       </target>
-      <target file="stm32f4xx_rcc.o" lastModified="155c4870b80">
+      <target file="stm32f4xx_rcc.o" lastModified="155c4ce474d">
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="1559d089a57"/>
       </target>
-=======
-=======
->>>>>>> parent of 272439d... Added new library to make Analog reading easier
-      <target file="syscalls.o" lastModified="155c46502c7">
-         <source file="..\..\..\syscalls\syscalls.c" lastModified="15580a61a9d"/>
-      </target>
-      <target file="stm32f4xx_gpio.o" lastModified="155c4650220">
-         <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="1559d08d963"/>
-      </target>
-      <target file="stm32f4xx_adc.o" lastModified="155c46500ee">
-         <source file="..\..\..\cmsis_lib\source\stm32f4xx_adc.c" lastModified="1559d09045d"/>
-      </target>
-      <target file="printf.o" lastModified="155c465015a">
-<<<<<<< HEAD
-         <source file="..\..\..\stdio\printf.c" lastModified="155c43430a9"/>
-      </target>
-      <target file="system_stm32f4xx.o" lastModified="155c465027a">
-         <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="155c433ebba"/>
-      </target>
-      <target file="startup_stm32f4xx.o" lastModified="155c464ff68">
-         <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="155c433c2f5"/>
-      </target>
-      <target file="PeripheralSetup.o" lastModified="155c46501c0">
-         <source file="..\..\..\PeripheralSetup.c" lastModified="155c461275a"/>
-      </target>
-=======
-      <target file="syscalls.o" lastModified="155c46502c7">
-         <source file="..\..\..\syscalls\syscalls.c" lastModified="15580a61a9d"/>
-      </target>
-      <target file="stm32f4xx_gpio.o" lastModified="155c4650220">
-         <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="1559d08d963"/>
-      </target>
-      <target file="stm32f4xx_adc.o" lastModified="155c46500ee">
-         <source file="..\..\..\cmsis_lib\source\stm32f4xx_adc.c" lastModified="1559d09045d"/>
-      </target>
-      <target file="printf.o" lastModified="155c465015a">
-=======
->>>>>>> parent of 272439d... Added new library to make Analog reading easier
-         <source file="..\..\..\stdio\printf.c" lastModified="155c43430a9"/>
-      </target>
-      <target file="system_stm32f4xx.o" lastModified="155c465027a">
-         <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="155c433ebba"/>
-      </target>
-      <target file="startup_stm32f4xx.o" lastModified="155c464ff68">
-         <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="155c433c2f5"/>
-      </target>
-      <target file="PeripheralSetup.o" lastModified="155c46501c0">
-         <source file="..\..\..\PeripheralSetup.c" lastModified="155c461275a"/>
-      </target>
-<<<<<<< HEAD
->>>>>>> parent of 272439d... Added new library to make Analog reading easier
-=======
->>>>>>> parent of 272439d... Added new library to make Analog reading easier
-      <target file="main.o" lastModified="155c4656852">
-         <source file="..\..\..\main.c" lastModified="155c46561b6"/>
-      </target>
-      <target file="sh_cmd.o" lastModified="155c465022d">
-         <source file="..\..\..\semihosting\sh_cmd.s" lastModified="1559d0863e2"/>
-      </target>
-      <target file="semihosting.o" lastModified="155c464feb7">
-         <source file="..\..\..\semihosting\semihosting.c" lastModified="1559d0863cc"/>
-      </target>
-      <target file="stm32f4xx_rcc.o" lastModified="155c4650069">
-         <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="1559d089a57"/>
-      </target>
-      <target file="delay.o" lastModified="155c464ff26">
-         <source file="..\..\..\delay.c" lastModified="155c41b61bd"/>
-      </target>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 272439d... Added new library to make Analog reading easier
-=======
->>>>>>> parent of 272439d... Added new library to make Analog reading easier
-=======
->>>>>>> parent of 272439d... Added new library to make Analog reading easier
    </processor>
 </history>

@@ -1,4 +1,4 @@
-void PeripheralsInit(void); //Tap = PC0 -- Squeeze = PC1 -- Spin = PC2
+void PeripheralsInit(void); //Tap = PA5 -- Squeeze = PA3 -- Spin = PC2
 
 void SqueezeLEDInit(void); //Connect LED to PA0
 void PushButtonInit(void); //Turns on the blue push button on the stm board
