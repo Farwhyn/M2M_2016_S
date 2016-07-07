@@ -3,6 +3,7 @@
    <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F407VG -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S\cmsis_lib\include -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S\cmsis_lib -I..\..\..\..\..\Users\Jose\Documents -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S -I..\..\..\..\..\Users\Jose\Documents\GitHub -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S\semihosting -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S\cmsis_boot -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S\cmsis -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S\syscalls">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <target file="syscalls.o" lastModified="155c4870dfb">
          <source file="..\..\..\syscalls\syscalls.c" lastModified="15580a61a9d"/>
       </target>
@@ -34,6 +35,8 @@
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="1559d089a57"/>
       </target>
 =======
+=======
+>>>>>>> parent of 272439d... Added new library to make Analog reading easier
       <target file="syscalls.o" lastModified="155c46502c7">
          <source file="..\..\..\syscalls\syscalls.c" lastModified="15580a61a9d"/>
       </target>
@@ -44,6 +47,7 @@
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_adc.c" lastModified="1559d09045d"/>
       </target>
       <target file="printf.o" lastModified="155c465015a">
+<<<<<<< HEAD
          <source file="..\..\..\stdio\printf.c" lastModified="155c43430a9"/>
       </target>
       <target file="system_stm32f4xx.o" lastModified="155c465027a">
@@ -66,6 +70,8 @@
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_adc.c" lastModified="1559d09045d"/>
       </target>
       <target file="printf.o" lastModified="155c465015a">
+=======
+>>>>>>> parent of 272439d... Added new library to make Analog reading easier
          <source file="..\..\..\stdio\printf.c" lastModified="155c43430a9"/>
       </target>
       <target file="system_stm32f4xx.o" lastModified="155c465027a">
@@ -77,6 +83,9 @@
       <target file="PeripheralSetup.o" lastModified="155c46501c0">
          <source file="..\..\..\PeripheralSetup.c" lastModified="155c461275a"/>
       </target>
+<<<<<<< HEAD
+>>>>>>> parent of 272439d... Added new library to make Analog reading easier
+=======
 >>>>>>> parent of 272439d... Added new library to make Analog reading easier
       <target file="main.o" lastModified="155c4656852">
          <source file="..\..\..\main.c" lastModified="155c46561b6"/>
@@ -94,6 +103,9 @@
          <source file="..\..\..\delay.c" lastModified="155c41b61bd"/>
       </target>
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 272439d... Added new library to make Analog reading easier
+=======
 >>>>>>> parent of 272439d... Added new library to make Analog reading easier
 =======
 >>>>>>> parent of 272439d... Added new library to make Analog reading easier

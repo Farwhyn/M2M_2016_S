@@ -114,7 +114,10 @@
     <File name="stdio/printf.c" path="stdio/printf.c" type="1"/>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <File name="cmsis_lib/source/tm_stm32f4_adc.c" path="tm_stm32f4_adc.c" type="1"/>
+=======
+>>>>>>> parent of 272439d... Added new library to make Analog reading easier
 =======
 >>>>>>> parent of 272439d... Added new library to make Analog reading easier
 =======

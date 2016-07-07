@@ -7,15 +7,7 @@
 #include "stm32f4xx_rcc.h"
 #include "stm32f4xx_gpio.h"
 #include "stm32f4xx_adc.h"
-#include "tm_stm32f4_adc.h"
 
-<<<<<<< HEAD
-void PeripheralsInit(void){
-	TM_ADC_InitADC(ADC1);
-	TM_ADC_InitADC(ADC2);
-	TM_ADC_InitADC(ADC3);
-	TM_ADC_EnableVbat();
-=======
 void TapInit(void){
 	GPIO_InitTypeDef GPIO_InitStruct;
 	ADC_InitTypeDef ADC_InitStruct;
@@ -50,7 +42,7 @@ void SqueezeInit(void){
 	GPIO_InitTypeDef GPIO_InitStruct;
 	ADC_InitTypeDef ADC_InitStruct;
 
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC2, ENABLE);
 	RCC_AHB1PeriphClockCmd(RCC_AHB1ENR_GPIOCEN,ENABLE);
 
 	//Analog Pin Config
@@ -103,25 +95,19 @@ void SpinInit(void){
 	ADC_Cmd(ADC3, ENABLE);
 
 	ADC_RegularChannelConfig(ADC3,ADC_Channel_12,1,ADC_SampleTime_15Cycles);
->>>>>>> parent of 272439d... Added new library to make Analog reading easier
 }
 
-int SensorRead(int sensor){
+void BoardLEDInit (void){
+	GPIO_InitTypeDef GPIO_InitStruct;
 
-	switch(sensor){
-
-	case 1:
-		return TM_ADC_ReadVbat(ADC1);
-		break;
-	case 2:
-		return TM_ADC_ReadVbat(ADC2);
-		break;
-	case 3:
-		return TM_ADC_ReadVbat(ADC3);
-		break;
-	default:
-		return 0;
-	}
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
+	GPIO_InitStruct.GPIO_Pin= GPIO_Pin_15 | GPIO_Pin_14 | GPIO_Pin_13
+			| GPIO_Pin_12;
+	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_OUT;
+	GPIO_InitStruct.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStruct.GPIO_Speed = GPIO_Speed_100MHz;
+	GPIO_InitStruct.GPIO_PuPd = GPIO_PuPd_NOPULL;
+	GPIO_Init(GPIOD, &GPIO_InitStruct);
 }
 
 void PushButtonInit(void) {
@@ -136,148 +122,14 @@ void PushButtonInit(void) {
 	GPIO_Init(GPIOA, &GPIO_InitStruct);
 }
 
-<<<<<<< HEAD
-//int SensorRead(int sensor){
-//
-//	if (sensor == 1){
-//		ADC_SoftwareStartConv(ADC1);
-//		while(!ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC)){
-//
-//		}
-//			return ADC_GetConversionValue(ADC1);
-//				}
-//	else if (sensor == 2){
-//		ADC_SoftwareStartConv(ADC2);
-//		while(!ADC_GetFlagStatus(ADC2, ADC_FLAG_EOC)){
-//
-//		}
-//			return ADC_GetConversionValue(ADC2);
-//		}
-//
-//	else if (sensor == 3){
-//		ADC_SoftwareStartConv(ADC3);
-//		while(!ADC_GetFlagStatus(ADC3, ADC_FLAG_EOC)){
-//
-//		}
-//			return ADC_GetConversionValue(ADC3);
-//		}
-//
-//	else
-//		return 1;
-//}
-
-//void TapInit(void){
-//	GPIO_InitTypeDef GPIO_InitStruct;
-//	ADC_InitTypeDef ADC_InitStruct;
-//
-//	RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);
-//	RCC_AHB1PeriphClockCmd(RCC_AHB1ENR_GPIOCEN,ENABLE);
-//
-//	//Analog Pin Config
-//	GPIO_InitStruct.GPIO_Pin= GPIO_Pin_0;
-//	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_AN;
-//	GPIO_InitStruct.GPIO_PuPd = GPIO_PuPd_NOPULL;
-//	GPIO_Init(GPIOC, &GPIO_InitStruct);
-//
-//	ADC_DeInit();
-//
-//	ADC_InitStruct.ADC_Resolution = ADC_Resolution_12b;
-//	ADC_InitStruct.ADC_ScanConvMode = DISABLE;
-//	ADC_InitStruct.ADC_ContinuousConvMode = ENABLE;
-//	ADC_InitStruct.ADC_ExternalTrigConvEdge = ADC_ExternalTrigConvEdge_None;
-//	ADC_InitStruct.ADC_ExternalTrigConv = ADC_ExternalTrigConv_T1_CC1;
-//	ADC_InitStruct.ADC_DataAlign = ADC_DataAlign_Right;
-//	ADC_InitStruct.ADC_NbrOfConversion = 1;
-//	ADC_Init(ADC1, &ADC_InitStruct);
-//
-//	ADC_Cmd(ADC1, ENABLE);
-//
-//	ADC_RegularChannelConfig(ADC1,ADC_Channel_10,1,ADC_SampleTime_15Cycles);
-//}
-//
-//
-//void SqueezeInit(void){
-//	GPIO_InitTypeDef GPIO_InitStruct;
-//	ADC_InitTypeDef ADC_InitStruct;
-//
-//	RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC2, ENABLE);
-//	RCC_AHB1PeriphClockCmd(RCC_AHB1ENR_GPIOCEN,ENABLE);
-//
-//	//Analog Pin Config
-//	GPIO_InitStruct.GPIO_Pin= GPIO_Pin_1;
-//	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_AN;
-//	GPIO_InitStruct.GPIO_PuPd = GPIO_PuPd_NOPULL;
-//	GPIO_Init(GPIOC, &GPIO_InitStruct);
-//
-//	ADC_DeInit();
-//
-//	ADC_InitStruct.ADC_Resolution = ADC_Resolution_12b;
-//	ADC_InitStruct.ADC_ScanConvMode = DISABLE;
-//	ADC_InitStruct.ADC_ContinuousConvMode = ENABLE;
-//	ADC_InitStruct.ADC_ExternalTrigConvEdge = ADC_ExternalTrigConvEdge_None;
-//	ADC_InitStruct.ADC_ExternalTrigConv = ADC_ExternalTrigConv_T1_CC1;
-//	ADC_InitStruct.ADC_DataAlign = ADC_DataAlign_Right;
-//	ADC_InitStruct.ADC_NbrOfConversion = 1;
-//	ADC_Init(ADC2, &ADC_InitStruct);
-//
-//	ADC_Cmd(ADC2, ENABLE);
-//
-//	ADC_RegularChannelConfig(ADC2,ADC_Channel_11,1,ADC_SampleTime_15Cycles);
-//}
-//
-//
-//void SpinInit(void){
-//	GPIO_InitTypeDef GPIO_InitStruct;
-//	ADC_InitTypeDef ADC_InitStruct;
-//
-//	RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);
-//	RCC_AHB1PeriphClockCmd(RCC_AHB1ENR_GPIOCEN,ENABLE);
-//
-//	//Analog Pin Config
-//	GPIO_InitStruct.GPIO_Pin= GPIO_Pin_2;
-//	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_AN;
-//	GPIO_InitStruct.GPIO_PuPd = GPIO_PuPd_NOPULL;
-//	GPIO_Init(GPIOC, &GPIO_InitStruct);
-//
-//	ADC_DeInit();
-//
-//	ADC_InitStruct.ADC_Resolution = ADC_Resolution_12b;
-//	ADC_InitStruct.ADC_ScanConvMode = DISABLE;
-//	ADC_InitStruct.ADC_ContinuousConvMode = ENABLE;
-//	ADC_InitStruct.ADC_ExternalTrigConvEdge = ADC_ExternalTrigConvEdge_None;
-//	ADC_InitStruct.ADC_ExternalTrigConv = ADC_ExternalTrigConv_T1_CC1;
-//	ADC_InitStruct.ADC_DataAlign = ADC_DataAlign_Right;
-//	ADC_InitStruct.ADC_NbrOfConversion = 1;
-//	ADC_Init(ADC3, &ADC_InitStruct);
-//
-//	ADC_Cmd(ADC3, ENABLE);
-//
-//	ADC_RegularChannelConfig(ADC3,ADC_Channel_12,1,ADC_SampleTime_15Cycles);
-//}
-//
-//void BoardLEDInit (void){
-//	GPIO_InitTypeDef GPIO_InitStruct;
-//
-//	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
-//	GPIO_InitStruct.GPIO_Pin= GPIO_Pin_15 | GPIO_Pin_14 | GPIO_Pin_13
-//			| GPIO_Pin_12;
-//	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_OUT;
-//	GPIO_InitStruct.GPIO_OType = GPIO_OType_PP;
-//	GPIO_InitStruct.GPIO_Speed = GPIO_Speed_100MHz;
-//	GPIO_InitStruct.GPIO_PuPd = GPIO_PuPd_NOPULL;
-//	GPIO_Init(GPIOD, &GPIO_InitStruct);
-//}
-=======
 int SensorRead(int sensor){
 
-
+	if (sensor == 1){
 		ADC_SoftwareStartConv(ADC1);
 		while(!ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC)){
 
 		}
 			return ADC_GetConversionValue(ADC1);
-
-			if (sensor == 1){
 				}
 	else if (sensor == 2){
 		ADC_SoftwareStartConv(ADC2);
@@ -300,4 +152,3 @@ int SensorRead(int sensor){
 
 
 }
->>>>>>> parent of 272439d... Added new library to make Analog reading easier
