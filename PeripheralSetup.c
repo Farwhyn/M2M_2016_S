@@ -124,15 +124,16 @@ void PushButtonInit(void) {
 
 int SensorRead(int sensor){
 
-	if (sensor == 1){
+
 		ADC_SoftwareStartConv(ADC1);
 		while(!ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC)){
 
 		}
 			return ADC_GetConversionValue(ADC1);
-		}
 
-	if (sensor == 2){
+			if (sensor == 1){
+				}
+	else if (sensor == 2){
 		ADC_SoftwareStartConv(ADC2);
 		while(!ADC_GetFlagStatus(ADC2, ADC_FLAG_EOC)){
 
@@ -140,12 +141,16 @@ int SensorRead(int sensor){
 			return ADC_GetConversionValue(ADC2);
 		}
 
-	if (sensor == 3){
+	else if (sensor == 3){
 		ADC_SoftwareStartConv(ADC3);
 		while(!ADC_GetFlagStatus(ADC3, ADC_FLAG_EOC)){
 
 		}
 			return ADC_GetConversionValue(ADC3);
 		}
+
+	else
+		return 1;
+
 
 }

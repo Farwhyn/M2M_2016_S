@@ -16,9 +16,9 @@ int main(void)
 	//Initialize the delay timer
 	SysTick_Init();
 
-	SqueezeInit(); //Connect Sensor to PC0
-	TapInit(); //Connect Sensor to PC1
-	SpinInit(); //Connect Sensor to PC2
+	TapInit(); //Connect Sensor to PC2
+//	SqueezeInit(); //Connect Sensor to PC1
+//	SpinInit(); //Connect Sensor to PC2
 
 //	SqueezeLEDInit(); //Connect LED to PA0
 	PushButtonInit(); //Turns on the blue push button on the stm board
@@ -37,11 +37,9 @@ int main(void)
 	int SpinThreshold=0;
 	//Begin main loop
 	while (1){
-		printf("hi");
+
 		//Read the state of the blue button
 		ButtonState=GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_0);
-
-
 
 		//If blue button is off, initialize the Free Play mode
 		if (!ButtonState){
@@ -49,8 +47,9 @@ int main(void)
 			GPIO_SetBits(GPIOD, GPIO_Pin_15 | GPIO_Pin_14 | GPIO_Pin_13 | GPIO_Pin_12);
 
 			//Read the voltage values for each of the three peripherals
+			TapReading=SensorRead(tap);
+			printf("%d\r\n",TapReading);
 //			SqueezeReading=SensorRead(squeeze);
-//			TapReading=SensorRead(tap);
 //			SqueezeReading=SensorRead(spin);
 
 			if (SqueezeReading>SqueezeThreshold){

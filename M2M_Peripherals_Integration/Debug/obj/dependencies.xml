@@ -26,7 +26,7 @@
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_adc.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
       </source>
-      <source file="..\..\..\syscalls\PeripheralSetup.h" lastModified="155c4389bfb">
+      <source file="..\..\..\syscalls\PeripheralSetup.h" lastModified="155c46270de">
       </source>
       <source file="..\..\..\stdio\printf.c" lastModified="155c4343879">
          <include file="..\..\..\semihosting\semihosting.h"/>
@@ -45,7 +45,7 @@
       </source>
       <source file="..\..\..\syscalls\syscalls.c" lastModified="15580a62a3d">
       </source>
-      <source file="..\..\..\PeripheralSetup.c" lastModified="155c4559c45">
+      <source file="..\..\..\PeripheralSetup.c" lastModified="155c4612b42">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_adc.h"/>

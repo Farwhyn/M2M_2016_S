@@ -1,5 +1,5 @@
-void SqueezeInit(void); //Connect Sensor to PC0
-void TapInit(void); //Connect Sensor to PC1
+void TapInit(void); //Connect Sensor to PC0
+void SqueezeInit(void); //Connect Sensor to PC1
 void SpinInit(void); //Connect Sensor to PC2
 
 void SqueezeLEDInit(void); //Connect LED to PA0
