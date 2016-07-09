@@ -8,6 +8,8 @@
 #include "stm32f4xx_gpio.h"
 #include "stm32f4xx_adc.h"
 #include "stm32f4xx_dma.h"
+#include "stm32f4xx_tim.h"
+#include "misc.h"
 
 //void TapInit(void){
 //	GPIO_InitTypeDef GPIO_InitStruct;
@@ -236,12 +238,120 @@ int SensorRead(int sensor){
 void TapLedInit(void) {
 	GPIO_InitTypeDef GPIO_InitStruct;
 
-		RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
+		RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
 		GPIO_InitStruct.GPIO_Pin= GPIO_Pin_2;
 		GPIO_InitStruct.GPIO_Mode = GPIO_Mode_OUT;
 		GPIO_InitStruct.GPIO_OType = GPIO_OType_PP;
 		GPIO_InitStruct.GPIO_Speed = GPIO_Speed_100MHz;
 		GPIO_InitStruct.GPIO_PuPd = GPIO_PuPd_NOPULL;
-		GPIO_Init(GPIOA, &GPIO_InitStruct);
+		GPIO_Init(GPIOC, &GPIO_InitStruct);
 
 }
+
+void ws2812_initTimer (uint32_t * buffer)
+{
+    TIM_TimeBaseInitTypeDef tim;
+    NVIC_InitTypeDef NVIC_InitStructure;
+    GPIO_InitTypeDef GPIO_InitStructure;
+    TIM_OCInitTypeDef TIM_OCInitStruct;
+    DMA_InitTypeDef DMA_InitStructure;
+
+    // * Start peripheral clocks * /
+    RCC_APB1PeriphClockCmd (RCC_APB1Periph_TIM3, ENABLE);
+    RCC_APB2PeriphClockCmd (RCC_APB2Periph_SYSCFG, ENABLE);
+    RCC_AHB1PeriphClockCmd (RCC_AHB1Periph_GPIOA, ENABLE);
+
+    // * Sets PA6 as alternate function for TIM3 * /
+    GPIO_PinAFConfig (GPIOA, GPIO_PinSource6, GPIO_AF_TIM3);
+
+    // * Init * PA6 /
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+    GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+    GPIO_Init (GPIOA, & GPIO_InitStructure);
+
+    // * TIM3 based init * /
+    tim.TIM_ClockDivision = TIM_CKD_DIV1;
+    tim.TIM_CounterMode = TIM_CounterMode_Up;
+    tim.TIM_Period = 105 ;
+    tim.TIM_RepetitionCounter = 0 ;
+    tim.TIM_Prescaler = 0 ;
+    TIM_TimeBaseInit (TIM3, & tim);
+
+    // * * Init TIM3 OC1 /
+    TIM_OCInitStruct.TIM_OCIdleState = TIM_OCIdleState_Reset;
+    TIM_OCInitStruct.TIM_OCMode = TIM_OCMode_PWM1;
+    TIM_OCInitStruct.TIM_OCNIdleState = TIM_OCNIdleState_Reset;
+    TIM_OCInitStruct.TIM_OCIdleState = TIM_OCIdleState_Reset;
+    TIM_OCInitStruct.TIM_OCNPolarity = TIM_OCNPolarity_High;
+    TIM_OCInitStruct.TIM_OCPolarity = TIM_OCPolarity_High;
+    TIM_OCInitStruct.TIM_OutputNState = TIM_OutputNState_Disable;
+    TIM_OCInitStruct.TIM_OutputState = TIM_OutputState_Enable;
+    TIM_OCInitStruct.TIM_Pulse = 10 ;
+    TIM_OC1Init (TIM3, & TIM_OCInitStruct);
+    TIM_OC1PreloadConfig (TIM3, TIM_OCPreload_Enable);
+
+    // * Init TIM3 for DMA * /
+    TIM_DMAConfig (TIM3, TIM_DMABase_CCR1, TIM_DMABurstLength_1Transfer);
+    RCC_AHB1PeriphClockCmd (RCC_AHB1Periph_DMA1, ENABLE);
+
+    DMA_DeInit (DMA1_Stream4);
+
+    DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t) & TIM3-> CCR1; // Physical address of Timer 3 CCR1
+    DMA_InitStructure.DMA_Memory0BaseAddr = (uint32_t) buffer;		   // Memory address Where the DMA will read the data
+    DMA_InitStructure.DMA_DIR = DMA_DIR_MemoryToPeripheral;			   // Transfer from RAM memory to peripheral
+    DMA_InitStructure.DMA_BufferSize = 42 ;                             // number of Half-words (16 bit) to be transfered
+    DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;   // Do no increment peripheral address
+    DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;			   // Automatically increment buffer (RAM ) index
+    DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_HalfWord; // TIM3 is a 16-bit counter -> transfer 16 bits at a time
+    DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_HalfWord;
+    DMA_InitStructure.DMA_Mode = DMA_Mode_Normal;
+    DMA_InitStructure.DMA_Priority = DMA_Priority_High;
+    DMA_InitStructure.DMA_Channel = DMA_Channel_5;
+    DMA_InitStructure.DMA_FIFOMode = DMA_FIFOMode_Disable;
+    DMA_InitStructure.DMA_FIFOThreshold = DMA_FIFOThreshold_1QuarterFull;
+    DMA_InitStructure.DMA_MemoryBurst = DMA_MemoryBurst_Single;
+    DMA_InitStructure.DMA_PeripheralBurst = DMA_PeripheralBurst_Single;
+    DMA_InitStructure.DMA_Priority = DMA_Priority_Medium;
+
+    // * Enable IRQ for DMA * /
+    NVIC_InitStructure.NVIC_IRQChannel = DMA1_Stream4_IRQn;
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x0F ;
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x0F ;
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_Init (& NVIC_InitStructure);
+
+    DMA_ITConfig (DMA1_Stream4, DMA_IT_TC, ENABLE);
+
+    // * * Start the DMA /
+    DMA_ClearFlag (DMA1_Stream4, DMA_FLAG_FEIF4 | DMA_FLAG_DMEIF4 | DMA_FLAG_TEIF4 | DMA_FLAG_HTIF4 | DMA_FLAG_TCIF4);
+    DMA_Cmd (DMA1_Stream4, DISABLE);
+    while (DMA1_Stream4-> CR & DMA_SxCR_EN);
+    DMA_Init (DMA1_Stream4, & DMA_InitStructure);
+    TIM_DMACmd (TIM3, TIM_DMA_CC1, ENABLE);
+}
+
+void DMA1_Stream4_IRQHandler ( void )
+{
+    if	(DMA_GetITStatus (DMA1_Stream4, DMA_IT_TCIF4)!= RESET)
+    {
+        TIM_Cmd (TIM3, DISABLE);
+        DMA_Cmd (DMA1_Stream4, DISABLE);
+        DMA_ClearFlag (DMA1_Stream4, DMA_FLAG_TCIF4);
+        DMA_ClearITPendingBit (DMA1_Stream4, DMA_IT_TCIF4);
+        ws2812_send ( 16 );
+	}
+}
+
+void ws2812_send (uint16_t len)
+{
+    uint16_t buffersize;
+    buffersize = (len * 24 ) + 42 ;
+
+    DMA_SetCurrDataCounter (DMA1_Stream4, buffersize);
+    DMA_Cmd (DMA1_Stream4, ENABLE);
+    TIM_Cmd (TIM3, ENABLE);
+}
+

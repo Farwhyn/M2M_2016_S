@@ -1,44 +1,53 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F407VG -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S\cmsis_lib\include -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S\cmsis_lib -I..\..\..\..\..\Users\Jose\Documents -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S -I..\..\..\..\..\Users\Jose\Documents\GitHub -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S\semihosting -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S\cmsis_boot -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S\cmsis -I..\..\..\..\..\Users\Jose\Documents\GitHub\M2M_2016_S\syscalls">
-      <target file="syscalls.o" lastModified="155c4e7feb7">
+      <target file="syscalls.o" lastModified="155d10ba1a7">
          <source file="..\..\..\syscalls\syscalls.c" lastModified="15580a61a9d"/>
       </target>
-      <target file="stm32f4xx_gpio.o" lastModified="155c4e7fe11">
+      <target file="stm32f4xx_gpio.o" lastModified="155d10ba103">
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="1559d08d963"/>
       </target>
-      <target file="stm32f4xx_dma.o" lastModified="155c4e7ff23">
+      <target file="stm32f4xx_dma.o" lastModified="155d10ba210">
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_dma.c" lastModified="155c499e261"/>
       </target>
-      <target file="stm32f4xx_adc.o" lastModified="155c4e7fc97">
+      <target file="stm32f4xx_adc.o" lastModified="155d10b9fab">
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_adc.c" lastModified="1559d09045d"/>
       </target>
-      <target file="system_stm32f4xx.o" lastModified="155c4e7fe6b">
+      <target file="stm32f4xx_tim.o" lastModified="155d10ba331">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_tim.c" lastModified="155c9094257"/>
+      </target>
+      <target file="system_stm32f4xx.o" lastModified="155d10ba15c">
          <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="155c433ebba"/>
       </target>
-      <target file="printf.o" lastModified="155c4e7fd13">
+      <target file="printf.o" lastModified="155d10ba015">
          <source file="..\..\..\stdio\printf.c" lastModified="155c43430a9"/>
       </target>
-      <target file="startup_stm32f4xx.o" lastModified="155c4e7fb23">
+      <target file="startup_stm32f4xx.o" lastModified="155d10b9e1b">
          <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="155c433c2f5"/>
       </target>
-      <target file="PeripheralSetup.o" lastModified="155c4e7fd92">
-         <source file="..\..\..\PeripheralSetup.c" lastModified="155c4e1d459"/>
+      <target file="PeripheralSetup.o" lastModified="155d10ba09b">
+         <source file="..\..\..\PeripheralSetup.c" lastModified="155c9740154"/>
       </target>
-      <target file="main.o" lastModified="155c4e7fb86">
-         <source file="..\..\..\main.c" lastModified="155c4e5587f"/>
+      <target file="stm32f4xx_usart.o" lastModified="155d10b9ddb">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_usart.c" lastModified="155c90cf265"/>
       </target>
-      <target file="sh_cmd.o" lastModified="155c4e7fe1e">
+      <target file="main.o" lastModified="155d10b9e90">
+         <source file="..\..\..\main.c" lastModified="155d10b96e7"/>
+      </target>
+      <target file="sh_cmd.o" lastModified="155d10ba10f">
          <source file="..\..\..\semihosting\sh_cmd.s" lastModified="1559d0863e2"/>
       </target>
-      <target file="semihosting.o" lastModified="155c4e7fa7c">
+      <target file="semihosting.o" lastModified="155d10b9cfe">
          <source file="..\..\..\semihosting\semihosting.c" lastModified="1559d0863cc"/>
       </target>
-      <target file="delay.o" lastModified="155c4e7fae1">
+      <target file="delay.o" lastModified="155d10b9d59">
          <source file="..\..\..\delay.c" lastModified="155c41b61bd"/>
       </target>
-      <target file="stm32f4xx_rcc.o" lastModified="155c4e7fc07">
+      <target file="stm32f4xx_rcc.o" lastModified="155d10b9f28">
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="1559d089a57"/>
+      </target>
+      <target file="misc.o" lastModified="155d10ba25e">
+         <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="155c9126e84"/>
       </target>
    </processor>
 </history>

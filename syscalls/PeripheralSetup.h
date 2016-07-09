@@ -7,3 +7,8 @@ int SensorRead(int sensor); //Reads the voltage value input of the different per
 							 //For the function input (sensor), type "squeeze","tap","spin".
 
 void TapLedInit(void);
+
+
+void ws2812_send (uint16_t len);
+void DMA1_Stream4_IRQHandler (void);
+void ws2812_initTimer (uint32_t * buffer);

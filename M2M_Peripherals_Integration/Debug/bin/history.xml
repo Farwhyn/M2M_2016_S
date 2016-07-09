@@ -1,20 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -g -nostartfiles -Map=M2M_Peripherals_Integration.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\M2M_Peripherals_Integration -TC:\CooCox\CoIDE\configuration\ProgramData\M2M_Peripherals_Integration/arm-gcc-link.ld -g">
-      <target file="M2M_Peripherals_Integration.elf" lastModified="155c4e80149">
-         <source file="..\obj\semihosting.o" lastModified="155c4e7fa7c"/>
-         <source file="..\obj\delay.o" lastModified="155c4e7fae1"/>
-         <source file="..\obj\startup_stm32f4xx.o" lastModified="155c4e7fb23"/>
-         <source file="..\obj\main.o" lastModified="155c4e7fb86"/>
-         <source file="..\obj\stm32f4xx_rcc.o" lastModified="155c4e7fc07"/>
-         <source file="..\obj\stm32f4xx_adc.o" lastModified="155c4e7fc97"/>
-         <source file="..\obj\printf.o" lastModified="155c4e7fd13"/>
-         <source file="..\obj\PeripheralSetup.o" lastModified="155c4e7fd92"/>
-         <source file="..\obj\stm32f4xx_gpio.o" lastModified="155c4e7fe11"/>
-         <source file="..\obj\sh_cmd.o" lastModified="155c4e7fe1e"/>
-         <source file="..\obj\system_stm32f4xx.o" lastModified="155c4e7fe6b"/>
-         <source file="..\obj\syscalls.o" lastModified="155c4e7feb7"/>
-         <source file="..\obj\stm32f4xx_dma.o" lastModified="155c4e7ff23"/>
+      <target file="M2M_Peripherals_Integration.elf" lastModified="155d10ba536">
+         <source file="..\obj\semihosting.o" lastModified="155d10b9cfe"/>
+         <source file="..\obj\delay.o" lastModified="155d10b9d59"/>
+         <source file="..\obj\stm32f4xx_usart.o" lastModified="155d10b9ddb"/>
+         <source file="..\obj\startup_stm32f4xx.o" lastModified="155d10b9e1b"/>
+         <source file="..\obj\main.o" lastModified="155d10b9e90"/>
+         <source file="..\obj\stm32f4xx_rcc.o" lastModified="155d10b9f28"/>
+         <source file="..\obj\stm32f4xx_adc.o" lastModified="155d10b9fab"/>
+         <source file="..\obj\printf.o" lastModified="155d10ba015"/>
+         <source file="..\obj\PeripheralSetup.o" lastModified="155d10ba09b"/>
+         <source file="..\obj\stm32f4xx_gpio.o" lastModified="155d10ba103"/>
+         <source file="..\obj\sh_cmd.o" lastModified="155d10ba10f"/>
+         <source file="..\obj\system_stm32f4xx.o" lastModified="155d10ba15c"/>
+         <source file="..\obj\syscalls.o" lastModified="155d10ba1a7"/>
+         <source file="..\obj\stm32f4xx_dma.o" lastModified="155d10ba210"/>
+         <source file="..\obj\misc.o" lastModified="155d10ba25e"/>
+         <source file="..\obj\stm32f4xx_tim.o" lastModified="155d10ba331"/>
       </target>
    </processor>
 </history>
