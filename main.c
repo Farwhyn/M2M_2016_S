@@ -9,7 +9,7 @@
 #include "misc.h"
 
 volatile uint16_t ADCConvertedValues[2];
-volatile uint32_t buffer[60];
+volatile uint32_t buffer[18]= {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 int const tap = 1;
 int const squeeze = 2;
@@ -17,11 +17,9 @@ int const spin =3;
 
 int main(void)
 {
-
 	//Initialize LED Strip
 	ws2812_initTimer (buffer);
-	DMA1_Stream4_IRQHandler();
-
+	ws2812_send ( 6 );
 
 	printf("hi");
 	//Initialize the delay timer
@@ -29,7 +27,7 @@ int main(void)
 
 	PeripheralsInit();
 	TapLedInit();
-	 BoardLEDInit();
+	BoardLEDInit();
 //	SqueezeLEDInit(); //Connect LED to PA0
 	PushButtonInit(); //Turns on the blue push button on the stm board
 	GPIO_ResetBits(GPIOC,GPIO_Pin_2);
@@ -51,9 +49,11 @@ int main(void)
 
 	//Begin main loop
 	while (1){
-		buffer[1]=1;
-		buffer[2]=1;
-		buffer[3]=1;
+		for (int i = 0; i < 18; i++)
+		{
+//			buffer[i] = (int)(255.0*(float)i/17.0);
+						buffer[i] = 1;
+		}
 //		printf("%d %d\r\n",buffer[0],buffer[1]);
 
 

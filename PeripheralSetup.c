@@ -341,7 +341,7 @@ void DMA1_Stream4_IRQHandler ( void )
         DMA_Cmd (DMA1_Stream4, DISABLE);
         DMA_ClearFlag (DMA1_Stream4, DMA_FLAG_TCIF4);
         DMA_ClearITPendingBit (DMA1_Stream4, DMA_IT_TCIF4);
-        ws2812_send ( 16 );
+        ws2812_send ( 6 );
 	}
 }
 
